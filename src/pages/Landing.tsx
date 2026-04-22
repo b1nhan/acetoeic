@@ -34,10 +34,32 @@ import {
 import { motion } from "motion/react";
 
 export default function Landing() {
-  const [content, setContent] = useState({
+  const [content, setContent] = useState<any>({
     heroTitle: "GIỎI TOEIC",
     heroSubtitle: "Luyện TOEIC hiệu quả. Đạt mục tiêu dễ dàng",
     ctaText: "Bắt đầu luyện tập",
+    stats: {
+      students: "300+",
+      listening: "1,000+",
+      grammar: "500+"
+    },
+    testimonials: [
+      { name: "Minh Anh", score: "850+ TOEIC", text: "GIỎI TOEIC giúp mình tăng 200 điểm chỉ sau 2 tháng luyện tập. Hệ thống chấm bài AI rất chính xác." },
+      { name: "Thanh Hà", score: "780 TOEIC", text: "Ngân hàng câu hỏi phong phú, giải thích chi tiết từng đáp án. Luyện ở đâu cũng được, rất tiện!" },
+      { name: "Quốc Bảo", score: "900+ TOEIC", text: "Thầy Hải dạy rất dễ hiểu, phương pháp độc đáo giúp mình nắm ngữ pháp nhanh hơn hẳn." }
+    ],
+    founder: {
+      name: "Nguyễn Hữu Hải",
+      role: "Founder & Giảng viên chính",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+      highlights: ["TOEIC 965/990", "Listening 495/495"],
+      achievements: [
+        "Lấy lại gốc chỉ sau 3 buổi",
+        "Đơn giản hoá tiếng Anh - Phương pháp dạy độc đáo",
+        "Phương pháp tăng điểm cấp tốc với công thức ghép câu",
+        "Cam kết chất lượng đào tạo và điểm số đầu ra"
+      ]
+    }
   });
 
   useEffect(() => {
@@ -45,9 +67,8 @@ export default function Landing() {
     if (stored) {
       const parsed = JSON.parse(stored);
       setContent({
-        heroTitle: parsed.heroTitle || content.heroTitle,
-        heroSubtitle: parsed.heroSubtitle || content.heroSubtitle,
-        ctaText: parsed.ctaText || content.ctaText,
+        ...content,
+        ...parsed
       });
     }
   }, []);
@@ -112,21 +133,21 @@ export default function Landing() {
               <div className="flex items-center justify-center mb-4">
                 <Users className="w-8 h-8 text-blue-600/40" />
               </div>
-              <p className="text-4xl font-black text-blue-600 tracking-tighter">300+</p>
+              <p className="text-4xl font-black text-blue-600 tracking-tighter">{content.stats?.students}</p>
               <p className="text-sm text-slate-500 mt-2 font-bold uppercase tracking-wider">Học viên đang học</p>
             </div>
             <div className="bg-white p-8 rounded-[32px] border border-slate-200 shadow-sm text-center">
               <div className="flex items-center justify-center mb-4">
                 <FileText className="w-8 h-8 text-blue-600/40" />
               </div>
-              <p className="text-4xl font-black text-blue-600 tracking-tighter">1,000+</p>
+              <p className="text-4xl font-black text-blue-600 tracking-tighter">{content.stats?.listening}</p>
               <p className="text-sm text-slate-500 mt-2 font-bold uppercase tracking-wider">Câu luyện nghe</p>
             </div>
             <div className="bg-white p-8 rounded-[32px] border border-slate-200 shadow-sm text-center">
               <div className="flex items-center justify-center mb-4">
                 <Award className="w-8 h-8 text-blue-600/40" />
               </div>
-              <p className="text-4xl font-black text-blue-600 tracking-tighter">500+</p>
+              <p className="text-4xl font-black text-blue-600 tracking-tighter">{content.stats?.grammar}</p>
               <p className="text-sm text-slate-500 mt-2 font-bold uppercase tracking-wider">Câu hỏi ngữ pháp</p>
             </div>
           </div>
@@ -281,11 +302,7 @@ export default function Landing() {
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: "Minh Anh", score: "850+ TOEIC", text: "GIỎI TOEIC giúp mình tăng 200 điểm chỉ sau 2 tháng luyện tập. Hệ thống chấm bài AI rất chính xác." },
-              { name: "Thanh Hà", score: "780 TOEIC", text: "Ngân hàng câu hỏi phong phú, giải thích chi tiết từng đáp án. Luyện ở đâu cũng được, rất tiện!" },
-              { name: "Quốc Bảo", score: "900+ TOEIC", text: "Thầy Hải dạy rất dễ hiểu, phương pháp độc đáo giúp mình nắm ngữ pháp nhanh hơn hẳn." },
-            ].map((testimonial, i) => (
+            {content.testimonials?.map((testimonial: any, i: number) => (
               <div key={i} className="bg-slate-50 border border-slate-200 rounded-[40px] p-10 relative group hover:shadow-xl transition-all">
                 <div className="flex items-center gap-1 mb-6">
                   {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-5 h-5 text-amber-400 fill-amber-400" />)}
@@ -317,30 +334,24 @@ export default function Landing() {
               <div className="md:w-2/5 relative bg-blue-600 flex items-center justify-center p-8">
                 <div className="w-64 h-64 bg-white/20 rounded-full blur-[80px] absolute" />
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" 
-                  alt="Nguyễn Hữu Hải" 
+                  src={content.founder?.avatar} 
+                  alt={content.founder?.name} 
                   className="w-full aspect-square object-cover rounded-3xl relative z-10 shadow-2xl ring-8 ring-white/10"
                   referrerPolicy="no-referrer"
                 />
               </div>
               <div className="md:w-3/5 p-10 md:p-16 flex flex-col justify-center">
-                <p className="text-blue-600 text-sm font-black uppercase tracking-widest mb-2">Founder & Giảng viên chính</p>
-                <h3 className="text-4xl font-black text-slate-900 mb-6">Nguyễn Hữu Hải</h3>
+                <p className="text-blue-600 text-sm font-black uppercase tracking-widest mb-2">{content.founder?.role}</p>
+                <h3 className="text-4xl font-black text-slate-900 mb-6">{content.founder?.name}</h3>
                 <div className="flex flex-wrap gap-3 mb-10">
-                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-900 text-white text-sm font-black shadow-lg">
-                    <Trophy className="w-4 h-4 text-amber-400" /> TOEIC 965/990
-                  </span>
-                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-blue-600 text-white text-sm font-black shadow-lg">
-                    <Headphones className="w-4 h-4" /> Listening 495/495
-                  </span>
+                  {content.founder?.highlights?.map((h: string, i: number) => (
+                    <span key={i} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-slate-900 text-white text-sm font-black shadow-lg">
+                      {h.includes("TOEIC") ? <Trophy className="w-4 h-4 text-amber-400" /> : <Headphones className="w-4 h-4" />} {h}
+                    </span>
+                  ))}
                 </div>
                 <ul className="space-y-4">
-                  {[
-                    "Lấy lại gốc chỉ sau 3 buổi",
-                    "Đơn giản hoá tiếng Anh - Phương pháp dạy độc đáo",
-                    "Phương pháp tăng điểm cấp tốc với công thức ghép câu",
-                    "Cam kết chất lượng đào tạo và điểm số đầu ra"
-                  ].map((item, i) => (
+                  {content.founder?.achievements?.map((item: string, i: number) => (
                     <li key={i} className="flex items-center gap-4 text-slate-600 font-bold">
                       <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
                         <CheckCircle className="w-4 h-4 text-emerald-600" />
