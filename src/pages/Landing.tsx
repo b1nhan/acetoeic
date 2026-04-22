@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
@@ -33,6 +34,24 @@ import {
 import { motion } from "motion/react";
 
 export default function Landing() {
+  const [content, setContent] = useState({
+    heroTitle: "GIỎI TOEIC",
+    heroSubtitle: "Luyện TOEIC hiệu quả. Đạt mục tiêu dễ dàng",
+    ctaText: "Bắt đầu luyện tập",
+  });
+
+  useEffect(() => {
+    const stored = localStorage.getItem("landing_content");
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      setContent({
+        heroTitle: parsed.heroTitle || content.heroTitle,
+        heroSubtitle: parsed.heroSubtitle || content.heroSubtitle,
+        ctaText: parsed.ctaText || content.ctaText,
+      });
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
       {/* Hero Section */}
@@ -48,18 +67,16 @@ export default function Landing() {
               <Sparkles className="w-4 h-4" />
               Nền tảng luyện TOEIC hàng đầu cho người Việt
             </div>
-            <h1 className="text-4xl sm:text-6xl font-black leading-tight tracking-tighter text-slate-900 mb-8">
-              GIỎI TOEIC<br />
-              <span className="text-blue-600">Luyện TOEIC hiệu quả</span><br />
-              Đạt mục tiêu dễ dàng
+            <h1 className="text-4xl sm:text-6xl font-black leading-tight tracking-tighter text-slate-900 mb-8 whitespace-pre-line">
+              {content.heroTitle}
             </h1>
             <p className="mt-6 text-slate-500 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed font-medium">
-              Nạp từ vựng, luyện tập ngữ pháp, luyện thi — tất cả trên một nền tảng bento hiện đại.
+              {content.heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 pb-10">
               <Link to="/signup">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-2xl px-10 h-16 text-lg font-black gap-2 shadow-2xl shadow-blue-200 transition-all hover:scale-105 active:scale-95">
-                  Bắt đầu luyện tập <ArrowRight className="w-5 h-5" />
+                  {content.ctaText} <ArrowRight className="w-5 h-5" />
                 </Button>
               </Link>
               <Link to="/courses">

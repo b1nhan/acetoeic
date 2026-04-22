@@ -7,6 +7,7 @@ interface User {
   email: string;
   level: string;
   points: number;
+  role: "user" | "admin";
 }
 
 interface AuthContextType {
@@ -35,14 +36,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const data = await api.auth.login(credentials);
     localStorage.setItem("token", data.token);
     localStorage.setItem("user", JSON.stringify(data.user));
-    setUser(data.user);
+    setUser(data.user as User);
   };
 
   const signup = async (data: any) => {
     const res = await api.auth.signup(data);
     localStorage.setItem("token", res.token);
     localStorage.setItem("user", JSON.stringify(res.user));
-    setUser(res.user);
+    setUser(res.user as User);
   };
 
   const logout = () => {

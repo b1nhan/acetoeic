@@ -1,9 +1,60 @@
+const DEFAULT_VOCABULARY = [
+  { id: 1, word: "Commitment", pronunciation: "/kəˈmɪtmənt/", meaning: "Sự cam kết, tận tụy", example: "Our company has a strong commitment to quality." },
+  { id: 2, word: "Negotiate", pronunciation: "/nəˈɡoʊʃieɪt/", meaning: "Đàm phán, thương lượng", example: "We need to negotiate the terms of the contract." },
+  { id: 3, word: "Implementation", pronunciation: "/ˌɪmplɪmenˈteɪʃn/", meaning: "Sự triển khai, thực hiện", example: "The implementation of the new policy will start next week." },
+  { id: 4, word: "Innovative", pronunciation: "/ˈɪnəveɪtɪv/", meaning: "Sáng tạo, đổi mới", example: "The company is known for its innovative products." },
+  { id: 5, word: "Proficiency", pronunciation: "/prəˈfɪʃnsi/", meaning: "Sự thông thạo, thành thạo", example: "She has high proficiency in English." },
+];
+
+const DEFAULT_QUIZ = [
+  { 
+    id: 1, 
+    question: "The team is working _______ to finish the project on time.", 
+    answers: ["hardly", "hard", "harder", "hardness"], 
+    correct_answer: "hard" 
+  },
+  { 
+    id: 2, 
+    question: "I would like to _______ an appointment with Dr. Smith.", 
+    answers: ["make", "do", "take", "give"], 
+    correct_answer: "make" 
+  },
+  { 
+    id: 3, 
+    question: "The new marketing strategy was _______ successful.", 
+    answers: ["height", "highly", "high", "highest"], 
+    correct_answer: "highly" 
+  },
+  { 
+    id: 4, 
+    question: "Please _______ the attached document for more details.", 
+    answers: ["refer", "look", "see", "read"], 
+    correct_answer: "refer" 
+  },
+  { 
+    id: 5, 
+    question: "They have decided to _______ the meeting until next Friday.", 
+    answers: ["put off", "call off", "take off", "go off"], 
+    correct_answer: "put off" 
+  },
+];
+
 const MOCK_USER = {
   id: 1,
-  name: "Nguyên Hải",
-  email: "hai@example.com",
+  name: "Người dùng Thử nghiệm",
+  email: "user@test.com",
   level: "Trung cấp",
-  points: 1250
+  points: 1250,
+  role: "user" as const
+};
+
+const MOCK_ADMIN = {
+  id: 2,
+  name: "Quản trị viên",
+  email: "admin@test.com",
+  level: "Nâng cao",
+  points: 9999,
+  role: "admin" as const
 };
 
 const MOCK_COURSES = [
@@ -30,41 +81,24 @@ const MOCK_COURSES = [
   }
 ];
 
-const MOCK_QUESTIONS = [
-  {
-    id: 1,
-    type: "ngữ pháp",
-    part: 5,
-    text: "The marketing director _______ the final proposal before the meeting started yesterday.",
-    option_a: "reviews",
-    option_b: "is reviewing",
-    option_c: "had reviewed",
-    option_d: "will review",
-    correct_answer: "C",
-    explanation: "Thì quá khứ hoàn thành (had reviewed) được sử dụng vì hành động đã hoàn thành trước một hành động khác trong quá khứ (cuộc họp bắt đầu)."
-  },
-  {
-    id: 2,
-    type: "từ vựng",
-    part: 5,
-    text: "Please submit your monthly expense reports _______ the end of the week.",
-    option_a: "within",
-    option_b: "before",
-    option_c: "until",
-    option_d: "during",
-    correct_answer: "B",
-    explanation: "'Before' là giới từ phù hợp nhất để chỉ thời hạn cuối cùng."
-  }
-];
-
 export const api = {
   auth: {
     login: async (credentials: any) => {
-      console.log("Mock Login:", credentials);
-      return { token: "mock-token", user: MOCK_USER };
+      // Mock validation for specific accounts
+      if (credentials.email === "admin@test.com" && credentials.password === "123456") {
+        return { token: "mock-admin-token", user: MOCK_ADMIN };
+      }
+      if (credentials.email === "user@test.com" && credentials.password === "123456") {
+        return { token: "mock-user-token", user: MOCK_USER };
+      }
+      
+      // Fallback for others (allow generic login for demo)
+      return { 
+        token: "mock-token", 
+        user: { ...MOCK_USER, email: credentials.email, name: credentials.email.split('@')[0] } 
+      };
     },
     signup: async (data: any) => {
-      console.log("Mock Signup:", data);
       return { token: "mock-token", user: { ...MOCK_USER, name: data.name, email: data.email } };
     },
   },
@@ -89,7 +123,27 @@ export const api = {
   },
   practice: {
     questions: async () => {
-      return Array(5).fill(MOCK_QUESTIONS).flat().slice(0, 10);
+      return Array(5).fill([]).flat().slice(0, 10); // Not used for new trac-nghiem but kept for compatibility
     },
+  },
+  vocabulary: {
+    list: async () => {
+      const stored = localStorage.getItem("vocab_data");
+      return stored ? JSON.parse(stored) : DEFAULT_VOCABULARY;
+    },
+    save: async (data: any) => {
+      localStorage.setItem("vocab_data", JSON.stringify(data));
+      return { success: true };
+    }
+  },
+  quiz: {
+    list: async () => {
+      const stored = localStorage.getItem("quiz_data");
+      return stored ? JSON.parse(stored) : DEFAULT_QUIZ;
+    },
+    save: async (data: any) => {
+      localStorage.setItem("quiz_data", JSON.stringify(data));
+      return { success: true };
+    }
   }
 };

@@ -50,6 +50,17 @@ export default function Navbar() {
           <Link to="/courses">
             <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Khóa học</Button>
           </Link>
+          <Link to="/tu-vung">
+            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Từ vựng</Button>
+          </Link>
+          <Link to="/trac-nghiem">
+            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Trắc nghiệm</Button>
+          </Link>
+          {user?.role === "admin" && (
+            <Link to="/admin/cms-landing">
+              <Button variant="ghost" className="text-sm font-black text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg px-4">Admin CMS</Button>
+            </Link>
+          )}
           <Link to="/pricing">
             <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Bảng giá</Button>
           </Link>

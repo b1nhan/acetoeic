@@ -39,6 +39,13 @@ export default function Login() {
           <CardDescription>
             Nhập thông tin đăng nhập để truy cập bảng điều khiển
           </CardDescription>
+          <div className="mt-4 p-4 bg-blue-50 rounded-2xl border border-blue-100 text-left">
+            <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-2">Tài khoản thử nghiệm:</p>
+            <div className="space-y-1 text-xs text-blue-800 font-medium">
+              <p>Admin: <span className="font-bold">admin@test.com</span> / 123456</p>
+              <p>User: <span className="font-bold">user@test.com</span> / 123456</p>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
