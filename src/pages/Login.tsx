@@ -22,7 +22,7 @@ export default function Login() {
       await login({ email, password });
       navigate("/dashboard");
     } catch (err: any) {
-      setError(err.message || "Invalid email or password");
+      setError(err.message || "Email hoặc mật khẩu không chính xác");
     } finally {
       setIsLoading(false);
     }
@@ -35,9 +35,9 @@ export default function Login() {
           <div className="mx-auto bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-lg text-white">
             <GraduationCap size={28} />
           </div>
-          <CardTitle className="text-2xl font-bold tracking-tight">Welcome back</CardTitle>
+          <CardTitle className="text-2xl font-bold tracking-tight">Chào mừng trở lại</CardTitle>
           <CardDescription>
-            Enter your credentials to access your dashboard
+            Nhập thông tin đăng nhập để truy cập bảng điều khiển
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -45,7 +45,7 @@ export default function Login() {
             <div className="space-y-2">
               <Input
                 type="email"
-                placeholder="Email address"
+                placeholder="Địa chỉ Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -55,7 +55,7 @@ export default function Login() {
             <div className="space-y-2">
               <Input
                 type="password"
-                placeholder="Password"
+                placeholder="Mật khẩu"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -64,13 +64,13 @@ export default function Login() {
             </div>
             {error && <p className="text-sm font-medium text-red-500 text-center">{error}</p>}
             <Button type="submit" className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 font-bold shadow-lg shadow-blue-100" disabled={isLoading}>
-              {isLoading ? <Loader2 className="animate-spin" /> : "Sign In"}
+              {isLoading ? <Loader2 className="animate-spin" /> : "Đăng nhập"}
             </Button>
           </form>
           <div className="mt-6 text-center text-sm text-slate-500">
-            Don't have an account?{" "}
+            Chưa có tài khoản?{" "}
             <Link to="/signup" className="font-semibold text-blue-600 hover:underline">
-              Create one for free
+              Đăng ký miễn phí
             </Link>
           </div>
         </CardContent>

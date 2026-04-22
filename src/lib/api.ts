@@ -1,31 +1,31 @@
 const MOCK_USER = {
   id: 1,
-  name: "Demo Student",
-  email: "student@example.com",
-  level: "Intermediate",
+  name: "Nguyên Hải",
+  email: "hai@example.com",
+  level: "Trung cấp",
   points: 1250
 };
 
 const MOCK_COURSES = [
   {
     id: 1,
-    title: "TOEIC Mastery 750+",
-    description: "Comprehensive guide to achieve 750+ scores focused on strategic reading and advanced listening techniques.",
-    level: "Intermediate",
+    title: "Chinh phục TOEIC 750+",
+    description: "Hướng dẫn toàn diện để đạt điểm 750+ tập trung vào kỹ năng đọc chiến thuật và kỹ thuật nghe nâng cao.",
+    level: "Trung cấp",
     image: "https://picsum.photos/seed/toeic1/800/600"
   },
   {
     id: 2,
-    title: "Foundations of English",
-    description: "Perfect for beginners looking to build a strong grammar and vocabulary base for the TOEIC test.",
-    level: "Beginner",
+    title: "Nền tảng Tiếng Anh cho TOEIC",
+    description: "Hoàn hảo cho người mới bắt đầu muốn xây dựng nền tảng ngữ pháp và từ vựng vững chắc cho kỳ thi TOEIC.",
+    level: "Cơ bản",
     image: "https://picsum.photos/seed/toeic2/800/600"
   },
   {
     id: 3,
-    title: "Advanced Reading Strategies",
-    description: "Master Part 7 with advanced skimming and scanning techniques for maximum speed and accuracy.",
-    level: "Advanced",
+    title: "Chiến lược Đọc hiểu Nâng cao",
+    description: "Làm chủ Part 7 với các kỹ thuật skimming và scanning nâng cao để đạt tốc độ và độ chính xác tối đa.",
+    level: "Nâng cao",
     image: "https://picsum.photos/seed/toeic3/800/600"
   }
 ];
@@ -33,7 +33,7 @@ const MOCK_COURSES = [
 const MOCK_QUESTIONS = [
   {
     id: 1,
-    type: "grammar",
+    type: "ngữ pháp",
     part: 5,
     text: "The marketing director _______ the final proposal before the meeting started yesterday.",
     option_a: "reviews",
@@ -41,11 +41,11 @@ const MOCK_QUESTIONS = [
     option_c: "had reviewed",
     option_d: "will review",
     correct_answer: "C",
-    explanation: "Past perfect tense (had reviewed) is used because the action was completed before another past action (the meeting started)."
+    explanation: "Thì quá khứ hoàn thành (had reviewed) được sử dụng vì hành động đã hoàn thành trước một hành động khác trong quá khứ (cuộc họp bắt đầu)."
   },
   {
     id: 2,
-    type: "vocabulary",
+    type: "từ vựng",
     part: 5,
     text: "Please submit your monthly expense reports _______ the end of the week.",
     option_a: "within",
@@ -53,7 +53,7 @@ const MOCK_QUESTIONS = [
     option_c: "until",
     option_d: "during",
     correct_answer: "B",
-    explanation: "'Before' is the most appropriate preposition to indicate a deadline."
+    explanation: "'Before' là giới từ phù hợp nhất để chỉ thời hạn cuối cùng."
   }
 ];
 
@@ -89,7 +89,6 @@ export const api = {
   },
   practice: {
     questions: async () => {
-      // Return a shuffled/repeated list of mock questions to fill 10 slots
       return Array(5).fill(MOCK_QUESTIONS).flat().slice(0, 10);
     },
   }

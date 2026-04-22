@@ -23,7 +23,7 @@ export default function Signup() {
       await signup({ name, email, password });
       navigate("/dashboard");
     } catch (err: any) {
-      setError(err.message || "Failed to create account");
+      setError(err.message || "Không thể tạo tài khoản");
     } finally {
       setIsLoading(false);
     }
@@ -36,9 +36,9 @@ export default function Signup() {
           <div className="mx-auto bg-blue-600 w-12 h-12 rounded-xl flex items-center justify-center mb-4 shadow-lg text-white">
             <GraduationCap size={28} />
           </div>
-          <CardTitle className="text-2xl font-bold tracking-tight">Create your account</CardTitle>
+          <CardTitle className="text-2xl font-bold tracking-tight">Tạo tài khoản</CardTitle>
           <CardDescription>
-            Join AceTOEIC today and start your journey
+            Tham gia GIỎI TOEIC ngay hôm nay để bắt đầu hành trình của bạn
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -46,7 +46,7 @@ export default function Signup() {
             <div className="space-y-2">
               <Input
                 type="text"
-                placeholder="Full Name"
+                placeholder="Họ và Tên"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -56,7 +56,7 @@ export default function Signup() {
             <div className="space-y-2">
               <Input
                 type="email"
-                placeholder="Email address"
+                placeholder="Địa chỉ Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -66,7 +66,7 @@ export default function Signup() {
             <div className="space-y-2">
               <Input
                 type="password"
-                placeholder="Choose a password"
+                placeholder="Chọn mật khẩu"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -75,13 +75,13 @@ export default function Signup() {
             </div>
             {error && <p className="text-sm font-medium text-red-500 text-center">{error}</p>}
             <Button type="submit" className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 font-bold shadow-lg shadow-blue-100" disabled={isLoading}>
-              {isLoading ? <Loader2 className="animate-spin" /> : "Sign Up"}
+              {isLoading ? <Loader2 className="animate-spin" /> : "Đăng ký"}
             </Button>
           </form>
           <div className="mt-6 text-center text-sm text-slate-500">
-            Already have an account?{" "}
+            Đã có tài khoản?{" "}
             <Link to="/login" className="font-semibold text-blue-600 hover:underline">
-              Log in instead
+              Đăng nhập ngay
             </Link>
           </div>
         </CardContent>

@@ -42,17 +42,17 @@ export default function Dashboard() {
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Student Dashboard</h1>
-          <p className="text-slate-500 mt-1">Consistency is the key to 750+ score.</p>
+          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">Bảng điều khiển học viên</h1>
+          <p className="text-slate-500 mt-1">Kiên trì là chìa khóa để đạt điểm 750+.</p>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 bg-white border border-slate-200 px-4 py-2 rounded-full shadow-sm">
              <Flame className="w-5 h-5 text-orange-500" />
-             <span className="text-sm font-bold text-slate-700">{data?.streak || 0} Day Streak</span>
+             <span className="text-sm font-bold text-slate-700">{data?.streak || 0} Ngày liên tiếp</span>
           </div>
           <Link to="/practice">
             <Button className="bg-blue-600 hover:bg-blue-700 h-10 px-6 rounded-full font-bold shadow-lg shadow-blue-100">
-              Daily Practice
+              Luyện tập ngay
             </Button>
           </Link>
         </div>
@@ -63,20 +63,20 @@ export default function Dashboard() {
         <div className="col-span-12 lg:col-span-8 row-span-2 bg-white rounded-3xl shadow-sm border border-slate-200 p-8 flex flex-col justify-between">
            <div className="flex justify-between items-start">
              <div>
-               <h3 className="text-slate-500 text-sm font-bold uppercase tracking-wider mb-2">Predicted TOEIC Score</h3>
+               <h3 className="text-slate-500 text-sm font-bold uppercase tracking-wider mb-2">Điểm TOEIC dự kiến</h3>
                <div className="flex items-baseline gap-3">
                  <span className="text-6xl font-black text-blue-600">785</span>
                  <span className="text-slate-400 font-bold text-xl">/ 990</span>
                </div>
              </div>
              <div className="bg-emerald-50 text-emerald-700 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-100">
-               +45 since last week
+               +45 từ tuần trước
              </div>
            </div>
            <div className="space-y-3">
               <div className="flex justify-between text-xs font-bold text-slate-500">
-                <span>Current Progress</span>
-                <span>Target: 850</span>
+                <span>Tiến độ hiện tại</span>
+                <span>Mục tiêu: 850</span>
               </div>
               <Progress value={82} className="h-3 bg-slate-100" />
            </div>
@@ -84,12 +84,12 @@ export default function Dashboard() {
 
         {/* Daily Mission - Bento Gradient highlight */}
         <div className="col-span-12 lg:col-span-4 row-span-3 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl shadow-xl p-8 text-white flex flex-col">
-           <h3 className="font-black text-2xl mb-6">Today's Goals</h3>
+           <h3 className="font-black text-2xl mb-6">Mục tiêu hôm nay</h3>
            <div className="space-y-6 flex-1">
              {[
-               { text: "15 mins Listening Practice", done: true },
-               { text: "10 Vocabulary Flashcards", done: false },
-               { text: "Complete Quiz: Part 5 Grammar", done: false },
+               { text: "15 phút luyện Nghe", done: true },
+               { text: "10 từ vựng mới", done: false },
+               { text: "Hoàn thành bài tập Ngữ pháp Part 5", done: false },
              ].map((goal, i) => (
                <div key={i} className="flex items-center gap-4">
                   <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-colors ${goal.done ? 'bg-white border-white text-blue-600' : 'border-white/30 bg-white/10'}`}>
@@ -101,7 +101,7 @@ export default function Dashboard() {
            </div>
            <Link to="/practice" className="mt-8">
              <Button className="w-full h-14 bg-white text-blue-700 hover:bg-blue-50 font-black text-lg rounded-2xl shadow-xl transition-all hover:scale-[1.02]">
-               Start Learning
+               Bắt đầu học
              </Button>
            </Link>
         </div>
@@ -112,11 +112,11 @@ export default function Dashboard() {
              <Target className="w-6 h-6 text-emerald-600" />
            </div>
            <div>
-              <p className="text-slate-500 text-sm font-bold">Total Points</p>
+              <p className="text-slate-500 text-sm font-bold">Tổng điểm tích lũy</p>
               <h4 className="text-3xl font-black text-slate-900">{data?.user?.points?.toLocaleString() || 0}</h4>
            </div>
            <div className="flex items-center gap-1 text-emerald-600 font-bold text-xs">
-              <TrendingUp className="w-3 h-3" /> +12% this week
+              <TrendingUp className="w-3 h-3" /> +12% tuần này
            </div>
         </div>
 
@@ -125,8 +125,8 @@ export default function Dashboard() {
              <Flame className="w-6 h-6 text-orange-500" />
            </div>
            <div>
-              <p className="text-slate-500 text-sm font-bold">Learning Streak</p>
-              <h4 className="text-3xl font-black text-slate-900">{data?.streak || 0} Days</h4>
+              <p className="text-slate-500 text-sm font-bold">Chuỗi học tập</p>
+              <h4 className="text-3xl font-black text-slate-900">{data?.streak || 0} Ngày</h4>
            </div>
            <div className="flex gap-1.5">
               {[1, 1, 1, 1, 1, 0, 0].map((v, i) => (
@@ -138,9 +138,9 @@ export default function Dashboard() {
         {/* Performance Chart - Large Bento */}
         <div className="col-span-12 lg:col-span-8 row-span-3 bg-white rounded-3xl shadow-sm border border-slate-200 p-8">
            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-lg font-black text-slate-900 italic">Score Performance</h3>
+              <h3 className="text-lg font-black text-slate-900 italic">Biểu đồ phong độ</h3>
               <div className="flex gap-2">
-                 <Badge variant="outline" className="rounded-lg border-slate-200">Active History</Badge>
+                 <Badge variant="outline" className="rounded-lg border-slate-200">Lịch sử điểm</Badge>
               </div>
            </div>
            <div className="h-[220px] w-full">
@@ -166,13 +166,13 @@ export default function Dashboard() {
 
         {/* Skill Proficiency - Bento pieces */}
         <div className="col-span-12 lg:col-span-4 row-span-3 bg-white rounded-3xl shadow-sm border border-slate-200 p-8">
-           <h3 className="text-sm font-black text-slate-900 mb-6 uppercase tracking-wider">Skill Proficiency</h3>
+           <h3 className="text-sm font-black text-slate-900 mb-6 uppercase tracking-wider">Mức độ thông thạo</h3>
            <div className="space-y-5">
              {[
-               { label: "Listening", val: 88, color: "bg-emerald-500" },
-               { label: "Reading", val: 65, color: "bg-orange-400" },
-               { label: "Grammar", val: 72, color: "bg-blue-500" },
-               { label: "Vocabulary", val: 91, color: "bg-blue-600" },
+               { label: "Nghe hiểu", val: 88, color: "bg-emerald-500" },
+               { label: "Đọc hiểu", val: 65, color: "bg-orange-400" },
+               { label: "Ngữ pháp", val: 72, color: "bg-blue-500" },
+               { label: "Từ vựng", val: 91, color: "bg-blue-600" },
              ].map((skill, i) => (
                <div key={i} className="space-y-2">
                  <div className="flex justify-between text-xs font-bold text-slate-600">
@@ -193,8 +193,8 @@ export default function Dashboard() {
               <AlertCircle className="w-6 h-6" />
            </div>
            <div className="flex-1">
-              <p className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Weakness Spotlight</p>
-              <h4 className="text-sm font-bold text-slate-900">Part 6: Text Completion</h4>
+              <p className="text-[10px] font-black text-rose-500 uppercase tracking-widest">Điểm yếu cần chú ý</p>
+              <h4 className="text-sm font-bold text-slate-900">Part 6: Hoàn thành đoạn văn</h4>
            </div>
            <ChevronRight className="w-5 h-5 text-rose-300 group-hover:text-rose-500 transition-transform group-hover:translate-x-1" />
         </div>
@@ -211,9 +211,9 @@ export default function Dashboard() {
            </div>
            <div className="p-6">
               <h4 className="font-bold text-slate-900 mb-1">TOEIC Masterclass 750+</h4>
-              <p className="text-xs text-slate-500 mb-4">Section 4: Reading Details</p>
+              <p className="text-xs text-slate-500 mb-4">Phần 4: Đọc hiểu chi tiết</p>
               <Progress value={62} className="h-1.5 mb-4" />
-              <Button variant="outline" className="w-full h-10 rounded-xl font-bold border-slate-100 hover:bg-slate-50">Resume</Button>
+              <Button variant="outline" className="w-full h-10 rounded-xl font-bold border-slate-100 hover:bg-slate-50">Học tiếp</Button>
            </div>
         </div>
 
@@ -223,9 +223,9 @@ export default function Dashboard() {
               <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
                  <BrainCircuit className="w-6 h-6" />
               </div>
-              <h4 className="text-xl font-bold mb-2">AI Tutoring</h4>
-              <p className="text-xs text-slate-400 leading-relaxed mb-6">"Identify tag questions in Part 2. This is your biggest point leak right now."</p>
-              <Button className="bg-blue-600 hover:bg-blue-700 w-full h-10 rounded-xl font-bold">Try Drills</Button>
+              <h4 className="text-xl font-bold mb-2">Trợ lý AI</h4>
+              <p className="text-xs text-slate-400 leading-relaxed mb-6">"Nhận diện câu hỏi đuôi trong Part 2. Đây là điểm bạn hay mất điểm nhất hiện tại."</p>
+              <Button className="bg-blue-600 hover:bg-blue-700 w-full h-10 rounded-xl font-bold">Luyện tập thêm</Button>
            </div>
            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl group-hover:bg-blue-600/30 transition-colors" />
         </div>

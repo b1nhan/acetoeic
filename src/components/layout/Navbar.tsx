@@ -40,7 +40,7 @@ export default function Navbar() {
               <GraduationCap size={24} />
             </div>
             <span className="text-xl font-black tracking-tighter text-slate-900">
-              ACE<span className="text-blue-600">TOEIC</span>
+              GIỎI<span className="text-blue-600">TOEIC</span>
             </span>
           </Link>
         </div>
@@ -48,19 +48,19 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex md:items-center md:gap-2">
           <Link to="/courses">
-            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Courses</Button>
+            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Khóa học</Button>
           </Link>
           <Link to="/pricing">
-            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Pricing</Button>
+            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Bảng giá</Button>
           </Link>
           <Link to="/about">
-            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">About</Button>
+            <Button variant="ghost" className="text-sm font-bold text-slate-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg px-4">Về chúng tôi</Button>
           </Link>
           
           {user ? (
             <div className="flex items-center gap-4 ml-4">
               <Link to="/dashboard">
-                <Button variant="ghost" className="text-slate-600 font-bold hover:bg-slate-50">Dashboard</Button>
+                <Button variant="ghost" className="text-slate-600 font-bold hover:bg-slate-50">Cá nhân</Button>
               </Link>
               <DropdownMenu>
                 <DropdownMenuTrigger className="outline-none">
@@ -76,18 +76,18 @@ export default function Navbar() {
                   <DropdownMenuLabel className="font-bold py-2 px-3">
                     <div className="flex flex-col space-y-0.5">
                       <p className="text-sm font-black text-slate-900">{user.name}</p>
-                      <p className="text-[10px] uppercase font-bold text-slate-400">Student Account</p>
+                      <p className="text-[10px] uppercase font-bold text-slate-400">Tài khoản học viên</p>
                     </div>
                   </DropdownMenuLabel>
                   <DropdownMenuSeparator className="bg-slate-100" />
                   <DropdownMenuItem onClick={() => navigate("/dashboard")} className="rounded-xl focus:bg-slate-50 cursor-pointer font-bold px-3 py-2">
                     <LayoutDashboard className="mr-2 h-4 w-4" />
-                    <span>Dashboard</span>
+                    <span>Bảng điều khiển</span>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator className="bg-slate-100" />
                   <DropdownMenuItem onClick={handleLogout} className="rounded-xl focus:bg-rose-50 text-rose-600 cursor-pointer font-bold px-3 py-2">
                     <LogOut className="mr-2 h-4 w-4" />
-                    <span>Log out</span>
+                    <span>Đăng xuất</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -95,11 +95,11 @@ export default function Navbar() {
           ) : (
             <div className="flex items-center gap-2 ml-4">
               <Link to="/login">
-                <Button variant="ghost" className="text-slate-600 font-bold hover:bg-slate-50 px-6">Log in</Button>
+                <Button variant="ghost" className="text-slate-600 font-bold hover:bg-slate-50 px-6">Đăng nhập</Button>
               </Link>
               <Link to="/signup">
                 <Button className="bg-blue-600 hover:bg-blue-700 text-white font-black px-6 rounded-xl shadow-lg shadow-blue-100 transition-all hover:scale-105 active:scale-95">
-                  Get Started
+                  Bắt đầu ngay
                 </Button>
               </Link>
             </div>

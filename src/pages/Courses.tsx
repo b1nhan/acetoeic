@@ -33,10 +33,10 @@ export default function Courses() {
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-extrabold text-slate-900 tracking-tight sm:text-5xl mb-4">
-          Structured Learning Paths
+          Lộ trình học tập bài bản
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-          From basic foundations to master-level strategies, choose the right course to reach your target TOEIC score.
+          Từ kiến thức nền tảng đến các chiến lược giải đề nâng cao, hãy chọn lộ trình phù hợp để đạt mục tiêu TOEIC dự định.
         </p>
       </div>
 
@@ -44,14 +44,14 @@ export default function Courses() {
         <div className="relative flex-1">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 h-5 w-5" />
           <Input 
-            placeholder="Search for courses, modules, or skills..." 
+            placeholder="Tìm kiếm khóa học, mô đun hoặc kỹ năng..." 
             className="pl-12 h-14 rounded-2xl border-slate-200 bg-white shadow-sm focus:ring-blue-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
         <Button variant="outline" className="h-14 px-6 rounded-2xl border-slate-200 bg-white shadow-sm font-bold flex items-center gap-2">
-          <Filter className="h-5 w-5" /> Filter Lessons
+          <Filter className="h-5 w-5" /> Lọc bài học
         </Button>
       </div>
 
@@ -69,9 +69,9 @@ export default function Courses() {
                  <Badge className="bg-white/90 backdrop-blur-sm text-slate-900 border-none px-3 py-1 font-bold shadow-sm rounded-lg">
                    {course.level}
                  </Badge>
-                 {course.level === 'Advanced' && (
+                 {course.level === 'Nâng cao' && (
                    <Badge className="bg-blue-600 text-white border-none px-3 py-1 font-bold rounded-lg shadow-lg shadow-blue-200">
-                     <Sparkles className="w-3 h-3 mr-1" /> Trending
+                     <Sparkles className="w-3 h-3 mr-1" /> Nổi bật
                    </Badge>
                  )}
                </div>
@@ -86,35 +86,35 @@ export default function Courses() {
             </CardHeader>
             <CardContent className="px-8 flex-1">
               <div className="flex items-center gap-6 text-[10px] uppercase font-bold text-slate-400">
-                <div className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> 12h 45m</div>
-                <div className="flex items-center gap-1.5"><BookOpen className="w-3 h-3" /> 24 Lessons</div>
-                <div className="flex items-center gap-1.5"><Users className="w-3 h-3" /> 2.4k Students</div>
+                <div className="flex items-center gap-1.5"><Clock className="w-3 h-3" /> 12giờ 45phút</div>
+                <div className="flex items-center gap-1.5"><BookOpen className="w-3 h-3" /> 24 Bài học</div>
+                <div className="flex items-center gap-1.5"><Users className="w-3 h-3" /> 2.4k Học viên</div>
               </div>
             </CardContent>
             <CardFooter className="p-8 pt-0">
                <Button className="w-full h-12 rounded-2xl bg-slate-900 hover:bg-blue-600 text-white font-black transition-all flex items-center justify-center gap-2 group-hover:shadow-xl group-hover:shadow-blue-100 group-hover:translate-x-1">
-                  Enroll Now <ChevronRight className="w-4 h-4" />
+                  Đăng ký ngay <ChevronRight className="w-4 h-4" />
                </Button>
             </CardFooter>
           </Card>
         ))}
         {filteredCourses?.length === 0 && (
           <div className="col-span-full py-20 text-center text-slate-500">
-             No courses found matching "{searchTerm}"
+             Không tìm thấy khóa học nào khớp với "{searchTerm}"
           </div>
         )}
       </div>
 
       <div className="mt-24 p-12 rounded-[40px] bg-slate-50 border border-slate-100 flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2">
-           <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Student Testimonial</span>
+           <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Cảm nhận học viên</span>
            <h2 className="text-3xl font-bold text-slate-900 mb-6 italic leading-relaxed">
-             "AceTOEIC changed the game for me. I went from a 520 to a 785 in just 6 weeks of daily practice. The AI feedback is like having a tutor 24/7."
+             "GIỎI TOEIC đã thay đổi cách học của tôi. Tôi đã tăng từ 520 lên 785 chỉ trong 6 tuần luyện tập mỗi ngày. Phản hồi AI như một gia sư riêng 24/7."
            </h2>
            <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">MT</div>
               <div>
-                 <p className="font-bold text-slate-900">Minh Tu</p>
+                 <p className="font-bold text-slate-900">Minh Tú</p>
                  <p className="text-sm text-slate-500">Samsung Global Logistics</p>
               </div>
            </div>
@@ -124,7 +124,7 @@ export default function Courses() {
              <div key={i} className="aspect-square bg-slate-200 rounded-3xl overflow-hidden relative group">
                 <img 
                   src={`https://picsum.photos/seed/review${i}/400/400`} 
-                  alt="Student success"
+                  alt="Học viên thành công"
                   className="w-full h-full object-cover transition-transform group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
