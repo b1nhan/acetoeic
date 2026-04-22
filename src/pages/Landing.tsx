@@ -35,7 +35,7 @@ import { motion } from "motion/react";
 
 export default function Landing() {
   const [content, setContent] = useState<any>({
-    heroTitle: "GIỎI TOEIC",
+    heroTitle: "Ten Academy",
     heroSubtitle: "Luyện TOEIC hiệu quả. Đạt mục tiêu dễ dàng",
     ctaText: "Bắt đầu luyện tập",
     stats: {
@@ -44,7 +44,7 @@ export default function Landing() {
       grammar: "500+"
     },
     testimonials: [
-      { name: "Minh Anh", score: "850+ TOEIC", text: "GIỎI TOEIC giúp mình tăng 200 điểm chỉ sau 2 tháng luyện tập. Hệ thống chấm bài AI rất chính xác." },
+      { name: "Minh Anh", score: "850+ TOEIC", text: "Ten Academy giúp mình tăng 200 điểm chỉ sau 2 tháng luyện tập. Hệ thống chấm bài AI rất chính xác." },
       { name: "Thanh Hà", score: "780 TOEIC", text: "Ngân hàng câu hỏi phong phú, giải thích chi tiết từng đáp án. Luyện ở đâu cũng được, rất tiện!" },
       { name: "Quốc Bảo", score: "900+ TOEIC", text: "Thầy Hải dạy rất dễ hiểu, phương pháp độc đáo giúp mình nắm ngữ pháp nhanh hơn hẳn." }
     ],
@@ -235,7 +235,7 @@ export default function Landing() {
               <Sparkles className="w-4 h-4" />
               Điểm khác biệt
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black italic tracking-tighter mb-4">Tại sao chọn GIỎI TOEIC?</h2>
+            <h2 className="text-3xl sm:text-5xl font-black italic tracking-tighter mb-4">Tại sao chọn Ten Academy?</h2>
             <p className="text-slate-400 text-lg max-w-xl mx-auto">Công nghệ hiện đại kết hợp phương pháp học tập khoa học cá nhân hóa cho người Việt.</p>
           </div>
 
@@ -376,7 +376,7 @@ export default function Landing() {
           >
             <Rocket className="w-16 h-16 text-blue-600 mx-auto mb-8 animate-bounce" />
             <h2 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tighter italic mb-6">Sẵn sàng chinh phục TOEIC?</h2>
-            <p className="text-xl text-slate-500 mb-12 max-w-lg mx-auto font-medium">Tham gia cùng 300+ học viên đang phá kỷ lục điểm số mỗi ngày trên GIỎI TOEIC.</p>
+            <p className="text-xl text-slate-500 mb-12 max-w-lg mx-auto font-medium">Tham gia cùng 300+ học viên đang phá kỷ lục điểm số mỗi ngày trên Ten Academy.</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/signup">
                 <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-3xl px-12 h-20 text-2xl font-black gap-3 shadow-2xl shadow-blue-200 transition-all hover:scale-105 active:scale-95">
@@ -391,7 +391,7 @@ export default function Landing() {
       {/* Footer */}
       <footer className="border-t border-slate-200 bg-white py-12">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-slate-400 font-bold uppercase tracking-widest">
-          <span>© 2025 GIỎI TOEIC. All rights reserved.</span>
+          <span>© 2025 Ten Academy. All rights reserved.</span>
           <div className="flex gap-8">
             <a href="#" className="hover:text-blue-600 transition-colors">Điều khoản</a>
             <a href="#" className="hover:text-blue-600 transition-colors">Bảo mật</a>

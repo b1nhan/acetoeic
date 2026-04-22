@@ -38,7 +38,7 @@ export default function Signup() {
           </div>
           <CardTitle className="text-2xl font-bold tracking-tight">Tạo tài khoản</CardTitle>
           <CardDescription>
-            Tham gia GIỎI TOEIC ngay hôm nay để bắt đầu hành trình của bạn
+            Tham gia Ten Academy ngay hôm nay để bắt đầu hành trình của bạn
           </CardDescription>
         </CardHeader>
         <CardContent>

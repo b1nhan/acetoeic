@@ -9,7 +9,7 @@ import { Save, Plus, Trash2, Layout, Book, CheckSquare } from "lucide-react";
 
 export default function AdminCMS() {
   const [landing, setLanding] = useState<any>({
-    heroTitle: "GIỎI TOEIC",
+    heroTitle: "Ten Academy",
     heroSubtitle: "Luyện TOEIC hiệu quả, Đạt mục tiêu dễ dàng",
     ctaText: "Bắt đầu luyện tập",
     stats: {
@@ -18,7 +18,7 @@ export default function AdminCMS() {
       grammar: "500+"
     },
     testimonials: [
-      { name: "Minh Anh", score: "850+ TOEIC", text: "GIỎI TOEIC giúp mình tăng 200 điểm chỉ sau 2 tháng luyện tập. Hệ thống chấm bài AI rất chính xác." },
+      { name: "Minh Anh", score: "850+ TOEIC", text: "Ten Academy giúp mình tăng 200 điểm chỉ sau 2 tháng luyện tập. Hệ thống chấm bài AI rất chính xác." },
       { name: "Thanh Hà", score: "780 TOEIC", text: "Ngân hàng câu hỏi phong phú, giải thích chi tiết từng đáp án. Luyện ở đâu cũng được, rất tiện!" },
       { name: "Quốc Bảo", score: "900+ TOEIC", text: "Thầy Hải dạy rất dễ hiểu, phương pháp độc đáo giúp mình nắm ngữ pháp nhanh hơn hẳn." }
     ],

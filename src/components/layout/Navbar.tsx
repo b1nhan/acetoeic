@@ -40,7 +40,7 @@ export default function Navbar() {
               <GraduationCap size={24} />
             </div>
             <span className="text-xl font-black tracking-tighter text-slate-900">
-              GIỎI<span className="text-blue-600">TOEIC</span>
+              Trung tâm <span className="text-blue-600">Ten</span>
             </span>
           </Link>
         </div>

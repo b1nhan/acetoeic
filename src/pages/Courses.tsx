@@ -109,7 +109,7 @@ export default function Courses() {
         <div className="md:w-1/2">
            <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Cảm nhận học viên</span>
            <h2 className="text-3xl font-bold text-slate-900 mb-6 italic leading-relaxed">
-             "GIỎI TOEIC đã thay đổi cách học của tôi. Tôi đã tăng từ 520 lên 785 chỉ trong 6 tuần luyện tập mỗi ngày. Phản hồi AI như một gia sư riêng 24/7."
+             "Ten Academy đã thay đổi cách học của tôi. Tôi đã tăng từ 520 lên 785 chỉ trong 6 tuần luyện tập mỗi ngày. Phản hồi AI như một gia sư riêng 24/7."
            </h2>
            <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">MT</div>
